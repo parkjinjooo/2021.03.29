@@ -1,0 +1,45 @@
+package ObjectOrientedProgramming;
+
+class Exercise6_4 {
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.name = "홍길동";
+        s.ban = 1;
+        s.no = 1;
+        s.kor = 100;
+        s.eng = 60;
+        s.math = 76;
+
+        System.out.println("이름:" + s.name);
+        System.out.println("총점:" + s.getTotal());
+        System.out.println("평균:" + s.getAverage());
+
+    }
+}
+
+class Student {
+    String name;
+    int ban;
+    int no;
+    int kor;
+    int eng;
+    int math;
+
+    public int getTotal() {
+
+        return kor + eng + math;
+    }
+
+    public float getAverage() {
+//        내 방식 -> 리턴타입이 String과 float로 달라 오류가 발생 
+//        float result = (float) getTotal() / 3;
+//        return String.format("%.2f", result);
+        return (int)(getTotal()/3f * 10 + 0.5f) / 10f;
+        
+        
+        
+        
+        
+    }
+
+}
