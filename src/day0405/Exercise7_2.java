@@ -1,12 +1,10 @@
 package day0405;
 
-class SutdaDeck {
+class SutDeck {
     final int CARD_NUM = 20;
-    // SutdaCard를 위한 공간만 마련되어 있다.
-    // 여기에 인스턴스를 직접 담아야 한다.
     SutdaCard[] cards = new SutdaCard[CARD_NUM];
 
-    SutdaDeck() {
+    SutDeck() {
         // 초기화를 통해 값들을 지정하고 인스턴스를 만들어 값을 담아준다.
         for (int i = 0; i < cards.length; i++) {
             // num, boolean 을 새롭게 초기화 해줘야 된다.
@@ -17,17 +15,34 @@ class SutdaDeck {
         }
     }
 
+    public void shuffle() {
+
+    }
+
+    public SutdaCard pick(int index) {
+        // 값 검증이 필요
+        if (index >= 0 && index < cards.length) {
+            return cards[index];
+        } else {
+            return cards[0];
+        }
+    }
+
+    public SutdaCard pick() {
+
+    }
+
 }
 
-class SutdaCard {
+class SutCard {
     int num;
     boolean isKwang;
 
-    SutdaCard() {
+    SutCard() {
         this(1, true);
     }
 
-    SutdaCard(int num, boolean isKwang) {
+    SutCard(int num, boolean isKwang) {
         this.num = num;
         this.isKwang = isKwang;
 
@@ -39,12 +54,19 @@ class SutdaCard {
 
 }
 
-class Exercise7_1 {
+class Exercise7_2 {
     public static void main(String[] args) {
         SutdaDeck deck = new SutdaDeck();
 
+        System.out.println(deck.pick(0));
+        System.out.println(deck.pick());
+        deck.shuffle();
+
         for (int i = 0; i < deck.cards.length; i++) {
             System.out.print(deck.cards[i] + ",");
+
+            System.out.println();
+            System.out.println(deck.pick(0));
         }
 
     }
