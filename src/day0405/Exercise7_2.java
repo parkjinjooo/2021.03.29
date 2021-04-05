@@ -22,13 +22,17 @@ class SutDeck {
     public SutdaCard pick(int index) {
         // 값 검증이 필요
         if (index >= 0 && index < cards.length) {
+
             return cards[index];
+
         } else {
+
             return cards[0];
         }
     }
 
     public SutdaCard pick() {
+        return cards[(int) (Math.random() * 20)];
 
     }
 
@@ -56,7 +60,7 @@ class SutCard {
 
 class Exercise7_2 {
     public static void main(String[] args) {
-        SutdaDeck deck = new SutdaDeck();
+        SutDeck deck = new SutDeck();
 
         System.out.println(deck.pick(0));
         System.out.println(deck.pick());
